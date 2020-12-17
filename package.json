@@ -30,7 +30,6 @@
     "moment": "^2.29.1",
     "moment-duration-format": "^2.3.2",
     "nodemon": "^2.0.6",
-    "sqlite3": "^4.2.0",
     "steam-game-browser": "^1.3.5"
   }
 }
