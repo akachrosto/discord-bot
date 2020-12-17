@@ -1,0 +1,20 @@
+{
+    "brazil":"`Brasil` :flag_br:",
+    "europe": "`Europa` :flag_eu:",
+    "hongkong": "`HongKong` :flag_hk:",
+    "japan": "`Japón` :flag_jp:",
+    "india": "`India` :flag_in:",
+    "russia": "`Rusia` :flag_ru:",
+    "singapore": "`Singapur` :flag_sg:",
+    "southafrica": "`África del Sur` :flag_za:",
+    "sydney": "`Sydney` :flag_au:",
+    "usCentral": "`EE.UU - Central` :flag_us:",
+    "usEast": "`EE.UU - Este` :flag_us:",
+    "usSouth": "`EE.UU - Sur` :flag_us:",
+    "usWest": "`EE.UU - Oeste` :flag_us:",
+    "vipUsEast": "`EE.UU - V.I.P. Este` :flag_us:",
+    "euCentral": "`Europa - Central` :flag_eu:",
+    "euWest": "`Europa - Oeste` :flag_eu:",
+    "london": "`Londres` :flag_gb:",
+    "amsterdam": "`Amsterdam` :flag_nl:"
+}
