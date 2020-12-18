@@ -8,7 +8,13 @@ module.exports = (client, message, args, db) => {
       .setColor(client.config.embedcolor);
       message.channel.send({embed: embed});
     return
-  }else{
+  }else if(!args[0]){
+    let embed = new Discord.MessageEmbed()
+    .setDescription("Por favor indique el prefijo que quiere establecer en su servidor.")
+    .setColor(client.config.embedcolor);
+    message.channel.send({embed: embed});
+  return
+  }{
     if (args[0] === "default") {
       let deleteDoc = db.collection('prefijos').doc(servidor.id).delete();
       let embed = new Discord.MessageEmbed()
