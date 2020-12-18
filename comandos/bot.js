@@ -19,7 +19,7 @@ module.exports = (client, message, args, command) => {
         .addField(`Usuarios`, `${client.users.cache.size }`, true)
         .addField(`Canales`, `${client.channels.cache.size}`, true)
         .setImage(client.user.avatarURL({size: 2048}))
-        .setFooter(message.author.username, message.author.avatarURL())
+        .setFooter(message.author.username, message.author.displayAvatarURL({ size: 512}))
         .setTimestamp()
 
         message.channel.send({embed: embedInfo});

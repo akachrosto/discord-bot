@@ -7,6 +7,7 @@ module.exports = (client, message, args, db) => {
       .setDescription("Usted no tiene permiso realizar esta acción.")
       .setColor(client.config.embedcolor);
       message.channel.send({embed: embed});
+    return
   }else{
     if (args[0] === "default") {
       let deleteDoc = db.collection('prefijos').doc(servidor.id).delete();
