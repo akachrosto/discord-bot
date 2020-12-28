@@ -1,3 +1,5 @@
+config_local.js
+local.js
 # Numerous always-ignore extensions
 *.diff
 *.err
