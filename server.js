@@ -1,4 +1,5 @@
 //Código del bot
+require('dotenv').config()
 const Discord = require('discord.js');
 const client = new Discord.Client();
 // El modulo fs se utiliza para leer los archivos y carpetas de un directorio:

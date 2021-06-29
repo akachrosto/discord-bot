@@ -1,5 +1,5 @@
 module.exports = async (client, message) => {
-  const Discord = require("discord.js");
+  const {Discord, MessageEmbed} = require("discord.js");
   // Comandos por DM
   if (message.channel.type === "dm") return;
 
@@ -32,7 +32,7 @@ module.exports = async (client, message) => {
   // Mensaje Informativo
   if (message.content.includes(`<@!${client.user.id}>`)) {
     let ping = Math.floor(message.client.ws.ping);
-    let embed = new Discord.MessageEmbed()
+    let embed = new MessageEmbed()
       .setTitle("Link de Invitación")
       .setURL("https://discordapp.com/oauth2/authorize?client_id=786636742647087154&scope=bot&permissions=8")
       .addField(`Prefijo:`, `${prefix}`, true)
@@ -54,5 +54,5 @@ module.exports = async (client, message) => {
   if (!cmd) return; // Si no hay comandos no ejecute nada.
 
   // Ejecuta el comando enviando el client, el mensaje y los argumentos.
-  cmd(client, message, args, db);
+  cmd(client, message, args, db, MessageEmbed);
 };
