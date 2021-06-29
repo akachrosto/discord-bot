@@ -77,3 +77,6 @@ jspm_packages
 
 # Heroku Env
 .env
+
+# Otros
+requirements/serviceAccountKey.json
