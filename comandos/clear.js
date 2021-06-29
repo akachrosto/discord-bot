@@ -10,6 +10,8 @@ module.exports = (client, message, args) => {
     message.channel.bulkDelete(cantidad);
     message.channel.send(
       `Se han eliminado **${cantidad-1}** mensajes correctamente`
-    );
+    ).then((msg) => {
+      msg.delete({timeout:5000})
+    });
   }
 };
