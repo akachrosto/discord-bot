@@ -6,7 +6,7 @@ module.exports = (client, message) => {
   }
   function embedRegion(serverRegion) {
     const embedRegion = new Discord.MessageEmbed()
-      .setAuthor(servidor.name, servidor.iconURL())
+      .setAuthor(servidor.name, servidor.iconURL({dynamic:true}))
       .addField("**Created At**", servidor.createdAt.toDateString(), true)
       .addField("**ID**", servidor.id, true)
       .addField("**Region**", serverRegion, true)
@@ -29,7 +29,7 @@ module.exports = (client, message) => {
       .setTimestamp()
       .setFooter(
         'Para ver el icono del servidor basta con decir "icono"',
-        message.author.avatarURL()
+        message.author.avatarURL({dynamic:true})
       );
 
     return embedRegion;

@@ -11,7 +11,7 @@ module.exports = (client, message, args, command) => {
         .setAuthor(`Información de ${client.user.username}`, client.user.avatarURL())
         .addField(`Dueño`, `<@${client.config.ownerid}>`, true)
         .addField(`Colaborador`, `<@${client.config.douid}>`, true)
-        .addField(`Version`, `0.0.1`, true)
+        .addField(`Version`, `1.0.0`, true)
         .addField(`Libreria`, `DiscordJS V12`, true)
         .addField(`Memoria`, `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB`, true)
         .addField(`Uptime`, `${actividad}`, true)

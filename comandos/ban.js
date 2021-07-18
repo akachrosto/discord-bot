@@ -2,7 +2,7 @@ module.exports = (client, message, args) => {
     let mencion = message.mentions.users.first();
     let razon = args.slice(1).join(" ");
     let miembro = message.guild.member(mencion);
-    let permiso = message.member.hasPermission("ADMINISTRATOR");
+    let permiso = message.member.hasPermission("BAN_MEMBERS");
   
     if (!permiso) {
       message.channel.send(

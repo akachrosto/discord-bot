@@ -2,6 +2,9 @@
 require('dotenv').config()
 const Discord = require('discord.js');
 const client = new Discord.Client();
+
+const disbut = require('discord-buttons');
+disbut(client)
 // El modulo fs se utiliza para leer los archivos y carpetas de un directorio:
 let { readdirSync } = require('fs'); 
 

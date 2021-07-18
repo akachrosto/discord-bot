@@ -1,23 +1,16 @@
 module.exports = (client, message, args) => {
     const Discord = require('discord.js');
 
-    let usuario = message.mentions.users.first();
-    if(!usuario){usuario = message.author};
     let bot, fechaCreacion, fechaIngreso, embed, apodo;
-
+    let usuario = message.mentions.users.first();
+    if(!usuario) usuario = message.author;
+    
     let datosUsuario = (usuario) => {
         bot = usuario.bot;
-
-        if (bot === true) {
-            bot = "Sí";
-        } else {
-            bot = "No";
-        };
         fechaIngreso = new Date(`${message.member.joinedAt}`);
         fechaCreacion = new Date(`${usuario.createdAt}`);
-
         apodo = message.guild.member(usuario).nickname;
-        
+        if(!apodo) apodo = "N/A"
     }
 
     let generarEmbed = (usuario) => {
@@ -25,7 +18,7 @@ module.exports = (client, message, args) => {
             .addField("Nombre", usuario.tag, true)
             .addField("Apodo", apodo, true)
             .addField(
-                "En discord desde",
+                "Fecha de Ingreso (Discord)",
                 fechaCreacion.getDate() +
                 "/" +
                 `${fechaCreacion.getMonth() + 1}` +
@@ -34,7 +27,7 @@ module.exports = (client, message, args) => {
                 true
             )
             .addField(
-                "Fecha de Ingreso",
+                "Fecha de Ingreso (Server)",
                 fechaIngreso.getDate() +
                 "/" +
                 `${fechaIngreso.getMonth() + 1}` +
@@ -42,7 +35,7 @@ module.exports = (client, message, args) => {
                 fechaIngreso.getFullYear(),
                 true
             )
-            .addField("Bot", bot, true)
+            .addField("Bot", `${bot ? "Sí" : "No"}`, true)
             .addField(
                 "Roles",
                 message.member.roles.cache.map((roles) => `\`${roles.name}\``).join(", "),

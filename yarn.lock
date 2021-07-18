@@ -547,6 +547,11 @@
   dependencies:
     "streamsearch" "0.1.2"
 
+"discord-buttons@^4.0.0":
+  "integrity" "sha512-E/eQX4Ktj7nKwNDsTfCezBNCu73FtPWJfQcpKohfl0jct/ucMUO+7uhL2MhGsZr4SCfojk7OzccAznuntB564w=="
+  "resolved" "https://registry.npmjs.org/discord-buttons/-/discord-buttons-4.0.0.tgz"
+  "version" "4.0.0"
+
 "discord.js@^12.5.1":
   "integrity" "sha512-D3nkOa/pCkNyn6jLZnAiJApw2N9XrIsXUAdThf01i7yrEuqUmDGc7/CexVWwEcgbQR97XQ+mcnqJpmJ/92B4Aw=="
   "resolved" "https://registry.npmjs.org/discord.js/-/discord.js-12.5.3.tgz"

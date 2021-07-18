@@ -3,14 +3,12 @@ module.exports = (client, message, args) => {
     // Ping
     let ping = Math.floor(message.client.ws.ping);
     // Color del Embed
-    let gen = require('color-generator');
-    let color = gen().hexString();
 
     // Embed
     let embed = new Discord.MessageEmbed()
-        .setColor(`0x${color.slice(1)}`)
-        .setDescription(`**${ping}ms** \`desde heroku\``)
-        .setFooter(message.author.tag, message.author.displayAvatarURL())
+        .setColor(client.config.embedcolor)
+        .setDescription(`**${ping}ms**`)
+        .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic:true}))
         .setTimestamp();
     
     message.channel.send({embed: embed});

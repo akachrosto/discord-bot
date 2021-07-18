@@ -20,7 +20,7 @@ module.exports = (client, message, args, db) => {
       let embed = new Discord.MessageEmbed()
       .setDescription("Se ha establecido como prefijo del servidor el prefijo por defecto.")
       .setColor(client.config.embedcolor)
-      .setFooter(message.author.tag, message.author.displayAvatarURL())
+      .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic:true}))
       .setTimestamp();
       message.channel.send({embed: embed});
     }else if(args[0] === "js/"){
@@ -28,7 +28,7 @@ module.exports = (client, message, args, db) => {
       let embed = new Discord.MessageEmbed()
       .setDescription("El prefijo introducido es el prefijo por defecto.")
       .setColor(client.config.embedcolor)
-      .setFooter(message.author.tag, message.author.displayAvatarURL())
+      .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic:true}))
       .setTimestamp();
       message.channel.send({embed: embed});
     }else {
@@ -41,7 +41,7 @@ module.exports = (client, message, args, db) => {
         .setTitle("El prefijo ha sido cambiado correctamente.")
         .addField(`Nuevo prefijo:`, `**${args.join(" ")}**`)
         .setColor(client.config.embedcolor)
-        .setFooter(message.author.tag, message.author.displayAvatarURL())
+        .setFooter(message.author.tag, message.author.displayAvatarURL({dynamic:true}))
         .setTimestamp();
       message.channel.send({ embed: embed });
     }

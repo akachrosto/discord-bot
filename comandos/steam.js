@@ -1,7 +1,10 @@
 module.exports = (client, message, args) => {
+  // Requerimientos
   const Discord = require("discord.js");
-  let sgb = require("steam-game-browser");
+  const sgb = require("steam-game-browser");
+  const { MessageButton, MessageActionRow } = require('discord-buttons');
   let nombre = args.join(" ");
+  // Si no colocan un juego o programa
   if (!nombre) {
     let embed = new Discord.MessageEmbed()
       .addField(
@@ -15,7 +18,7 @@ module.exports = (client, message, args) => {
   }
   sgb.searchByName(`${nombre}`, (err, data) => {
     if (err) {
-      // Si no se encuentra el juego o si no se introdujo un nombre
+      // Si no se encuentra el juego
       let embed = new Discord.MessageEmbed()
         .addField(
           "Ha ocurrido un error.",
@@ -27,39 +30,36 @@ module.exports = (client, message, args) => {
       message.channel.send({ embed: embed });
       console.error(err);
     }
+    // Algunos datos
     let isFree = data.is_free;
-    if (isFree === true) {
-      isFree = "Sí";
-    } else {
-      isFree = "No";
-    }
     let edad = data.required_age;
+    // EDAD
     if (edad === 0) {
       edad = "ATP";
     } else {
       edad = edad;
-    }
-    if (data.release_date.comming_soon === true) {
-      fecha = "***Pronto...***";
-    } else {
-      fecha = `${data.release_date.date}`;
-    }
-    if (data.pc_requirements.minimum === undefined) {
+    };
+    // REQUISITOS MINIMOS
+    if(!data.pc_requirements.minimum) {
       requisitosminimos = "No especifica";
     } else {
         requisitosminimos = data.pc_requirements.minimum.slice(8);
     }
-    if (data.pc_requirements.recommended === undefined) {
+    // REQUISITOS RECOMENDADOS
+    if(!data.pc_requirements.recommended) {
         requisitosrecomendados = "No especifica";
     }else{
         requisitosrecomendados = data.pc_requirements.recommended.slice(12);
-    }
+    };
+
     let embed = new Discord.MessageEmbed()
       .setTitle(data.name)
       .setURL(`https://store.steampowered.com/app/${data.steam_appid}`)
       .setDescription(data.short_description)
-      .addField("Free To Play", `${isFree}`, true)
-      .addField("Fecha de Lanzamiento", fecha, true)
+      .addField("Free To Play", `${isFree ? "Sí" : "No"}`, true)
+      .addField("Fecha de Lanzamiento", `
+        ${data.release_date.comming_soon ? "***Pronto...***" : data.release_date.date}
+        `, true)
       .addField("ID", data.steam_appid, true)
       .addField("Edad Requerida", `${edad}`, true)
       .addField("Desarrolado por", data.developers, true)
